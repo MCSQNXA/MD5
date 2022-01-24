@@ -1,24 +1,28 @@
 #include "MD5.h"
 
+#include <Windows.h>
 
-void main()
+#include <string>
+#include <iostream>
+
+
+int main()
 {
-	unsigned char in[10];
+	SetConsoleTitle("Please enter a string");
+
+	std::string string;
 	unsigned char out[16];
 
-	memset(in, 0, sizeof(in));
+	while (std::getline(std::cin, string)) {
+		MD5::digest((unsigned char*)string.c_str(), string.size(), out);
 
-	for (int i = 0; i < sizeof(in); i++) {
-		printf("%02X ", in[i]);
-	}printf("\n");
+		for (int i = 0; i < sizeof(out); i++) {
+			printf("%02X ", out[i]);
+		}
 
-	MD5::digest(in, sizeof(in), out);
-
-	for (int i = 0; i < sizeof(out); i++) {
-		printf("%02X ", out[i]);
-	}printf("\n");
+		std::cout << std::endl << std::endl;
+	}
 
 
 
-	system("pause");
 }

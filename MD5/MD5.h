@@ -3,6 +3,8 @@
 #include <stdio.h> 
 #include <stdlib.h> 
 #include <string.h> 
+#include <stdint.h>
+
 
 #define S11 7 
 #define S12 12 
@@ -19,11 +21,11 @@
 #define S41 6 
 #define S42 10 
 #define S43 15 
-#define S44 21 
+#define S44 21
 
 typedef unsigned char* POINTER;
 typedef unsigned short int UINT2;
-typedef unsigned long int UINT4;
+typedef uint32_t UINT4;//typedef unsigned long int UINT4;
 
 static unsigned char PADDING[64] = {
  0x80, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
