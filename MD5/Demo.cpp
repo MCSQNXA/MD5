@@ -16,8 +16,14 @@ int main()
 	while (std::getline(std::cin, string)) {
 		MD5::digest((unsigned char*)string.c_str(), string.size(), out);
 
-		for (int i = 0; i < sizeof(out); i++) {
-			printf("%02X ", out[i]);
+	for (int i = 0; i < sizeof(in); i++) {
+		printf("%02X ", in[i]);
+	}printf("\n");
+
+	MD5::digest(in, sizeof(in), out);
+
+	for (int i = 0; i < sizeof(out); i++) {
+		printf("%02X ", out[i]);
 		}
 
 		std::cout << std::endl << std::endl;
@@ -25,4 +31,5 @@ int main()
 
 
 
+	system("pause");
 }
